@@ -23,24 +23,21 @@ int a[N];
 //=======================
 
 void solve() {
-    long long n, r, x=0,ans=0;
-    cin >> n >> r;
-    long long a[n],b[n];
-    fo(i,n)cin >> a[i];
-    fo(i,n)cin >> b[i];
-    x = b[0];
-    ans = x;
-    for(ll i=1; i<n; i++)
-    {
-      x = x-r*(a[i] - a[i- 1]);
-      if(x < 0)
-        x = 0;
+    int r1, w1, c1, r2, w2, c2;
+    int a=0, b=0;
+    cin >> r1 >> w1 >> c1;
+    cin >> r2 >> w2 >> c2;
+    if(r1 > r2) a++;
+        else b++;
+    if(w1 > w2) a++;
+        else b++;
+    if(c1 > c2) a++;
+        else b++;
+    
+    if(a > b) cout << "A\n";
+        else cout << "B\n";
 
-      x += b[i];
-      if(ans < x)
-        ans = x;
-    }
-    cout << ans << endl;
+    
 }
 
 int main() {

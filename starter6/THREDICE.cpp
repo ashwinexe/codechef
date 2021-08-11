@@ -23,26 +23,17 @@ int a[N];
 //=======================
 
 void solve() {
-    long long n, r, x=0,ans=0;
-    cin >> n >> r;
-    long long a[n],b[n];
-    fo(i,n)cin >> a[i];
-    fo(i,n)cin >> b[i];
-    x = b[0];
-    ans = x;
-    for(ll i=1; i<n; i++)
-    {
-      x = x-r*(a[i] - a[i- 1]);
-      if(x < 0)
-        x = 0;
-
-      x += b[i];
-      if(ans < x)
-        ans = x;
-    }
-    cout << ans << endl;
+    double n, m;
+    cin >> n >> m;
+    double ans = (1 - ((n+m)/6));
+    if(n == m)
+        cout << 0 << endl;
+    else
+        cout << ans << setprecision(10) <<fixed << endl;
+    // printf("%f\n", ans);
+    
 }
-
+~
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 

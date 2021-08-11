@@ -19,28 +19,44 @@ const int MOD = 1000000007;
 const int N = 2e6+13, M = N;
 //=======================
 vi g[N];
-int a[N];
 //=======================
 
-void solve() {
-    long long n, r, x=0,ans=0;
-    cin >> n >> r;
-    long long a[n],b[n];
-    fo(i,n)cin >> a[i];
-    fo(i,n)cin >> b[i];
-    x = b[0];
-    ans = x;
-    for(ll i=1; i<n; i++)
+int scored(vi a, int n)
+{
+    int ans=1;
+    for(int i=0; i<n; i++)
     {
-      x = x-r*(a[i] - a[i- 1]);
-      if(x < 0)
-        x = 0;
-
-      x += b[i];
-      if(ans < x)
-        ans = x;
+        ans = ans & a[i];
     }
-    cout << ans << endl;
+    return ans;
+}
+
+void solve() {
+    int n,q,cnt=0;
+    cin >> n >> q;
+    int a[n];
+    fo(i,n)cin >> a[i];
+    int x[q], v[q];
+    fo(i, q)
+    {
+        cin >> x[i];
+        cin >> v[i];
+    }
+    vi score;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=i; j<n; j++)
+        {
+            for(int k=i; k<=j; k++)
+            {
+                cout << a[k]<< " ";
+                score.push_back(a[k]);
+                cnt++;
+            }
+            cout << "scored : " << scored(score, cnt) << endl;
+            score.clear();
+        }
+    }
 }
 
 int main() {
