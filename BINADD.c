@@ -9,7 +9,7 @@ int main()
     scanf("%d", &t);
     while(t--)
     {
-        int A,B;
+        int A,B,C;
         int limit = pow(10,5);
         scanf("%d %d", &A, &B);
         if(A == 1 || A == 0 && B == 1 || B == 0){
